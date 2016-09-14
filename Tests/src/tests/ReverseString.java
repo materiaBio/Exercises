@@ -1,5 +1,10 @@
 package tests;
 
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author Tamara
@@ -32,6 +37,11 @@ public class ReverseString {
         //Forth method
         System.out.println("------------Forth method---------------");
         stringReverse4("i love programing in java");
+        System.out.println("\n\n");
+        
+         //Fifth method
+        System.out.println("------------Fifth method---------------");
+        stringReverse5("i love programing in java");
         System.out.println("\n\n");
     }
 
@@ -83,6 +93,26 @@ public class ReverseString {
         StringBuilder sb = new StringBuilder(s);
         s = sb.reverse().toString();
         System.out.println(s);
+    }
+
+    //hardcore with collections
+    static void stringReverse5(String s) {
+
+        List<Character> list = new LinkedList<>();
+
+        for (char ch : s.toCharArray()) {
+            list.add(ch);
+        }
+
+        Collections.reverse(list);
+        Iterator iter = list.iterator();
+
+        StringBuilder sb = new StringBuilder();
+
+        while (iter.hasNext()) {
+            sb.append(iter.next());
+        }
+        System.out.println(sb.toString());
     }
 
 }
